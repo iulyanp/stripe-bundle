@@ -4,7 +4,12 @@ This is a symfony bundle that implements payment with Stripe library.
 
 ## Requirements
 
-> The version `0.1.0` of the bundle requires that you'll have already installed AsseticBundle.
+> The version `0.1.0` requires that you'll have already installed AsseticBundle.
+
+## Why to use it?
+
+> The most important thing you need to know when you choose to use this bundle is that your customer card information are safe.
+> This means that the sensible information about the client credit card will never touch your servers.
 
 ### Installation
 
@@ -20,6 +25,13 @@ $ composer require iulyanp/IPStripeBundle
 $bundles = [
     new IP\StripeBundle\IPStripeBundle(),
 ];
+```
+
+#### Add bundle routes to app/config/routing.yml file
+```yml
+ip_stripe:
+    resource: "@IPStripeBundle/Resources/config/routing.yml"
+    prefix:   /stripe
 ```
 
 #### Configure the bundle
