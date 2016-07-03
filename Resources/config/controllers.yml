@@ -1,0 +1,13 @@
+parameters:
+    ip_stripe.controller.stripe.class: IP\StripeBundle\Controller\StripeController
+
+services:
+    ip_stripe.controller.stripe:
+        class: '%ip_stripe.controller.stripe.class%'
+        arguments:
+            - "@ip_stripe.billing"
+            - "@router"
+            - "@form.factory"
+            - "@session"
+            - "@templating"
+            - "%stripe%"

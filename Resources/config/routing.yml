@@ -1,0 +1,8 @@
+ip_stripe_charge:
+    path:     /charge
+    defaults: { _controller: ip_stripe.controller.stripe:charge }
+
+ip_stripe_success:
+    path:     /success
+    defaults: { _controller: ip_stripe.controller.stripe:success }
+

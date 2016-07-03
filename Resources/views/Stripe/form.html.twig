@@ -1,0 +1,50 @@
+{{ form_start(stripe_form, {'attr': {'novalidate': 'novalidate', id: 'payment-form'}}) }}
+
+<div class="form-group">
+    <div class="alert alert-danger hidden" id="payment-errors">
+        <span></span>
+    </div>
+</div>
+
+<div class="form-group">
+    <i class="fa fa-credit-card" aria-hidden="true"></i>
+    {{ form_label(stripe_form.number, 'Card Number', {'attr': {'class': 'form-control' }}) }}
+    {{ form_widget(stripe_form.number, {'full_name': null, 'attr': {'class': 'form-control', placeholder:'Card Number' }}) }}
+</div>
+
+<div class="form-group">
+    <div class="row">
+        <div class="col-sm-4">
+            <i class="fa fa-calendar" aria-hidden="true"></i>
+            {{ form_label(stripe_form.expiration_month, 'Expiration Month', {'attr': {'class': 'form-control' }}) }}
+            {{ form_widget(stripe_form.expiration_month, {'full_name': null, 'attr': {'class': 'form-control col-sm-3', placeholder:'Expiration Month' }}) }}
+        </div>
+        <div class="col-sm-4">
+            <i class="fa fa-calendar" aria-hidden="true"></i>
+            {{ form_label(stripe_form.expiration_year, 'Expiration Year', {'attr': {'class': 'hidden' }}) }}
+            {{ form_widget(stripe_form.expiration_year, {'full_name': null, 'attr': {'class': 'form-control', placeholder:'Expiration Year' }}) }}
+        </div>
+        <div class="col-sm-4">
+            <i class="fa fa-lock" aria-hidden="true"></i>
+            {{ form_label(stripe_form.security, 'Card Security', {'attr': {'class': 'form-control' }}) }}
+            {{ form_widget(stripe_form.security, {'full_name': null, 'attr': {'class': 'form-control', placeholder:'Card Security' }}) }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+    <i class="fa fa-envelope-o" aria-hidden="true"></i>
+    {{ form_label(stripe_form.email, 'E-mail', {'attr': {'class': 'form-control' }}) }}
+    {{ form_widget(stripe_form.email, {'attr': {'class': 'form-control', placeholder:'E-mail' }}) }}
+</div>
+
+{{ form_widget(stripe_form.token) }}
+
+<div class="form-group">
+    <button id="submit-payment" class="btn btn-default has-spinner">
+        <span class="spinner"><i class="fa fa-refresh"></i></span>
+        Submit Payment
+    </button>
+</div>
+
+{{ form_end(stripe_form) }}

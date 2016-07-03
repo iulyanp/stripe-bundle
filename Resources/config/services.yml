@@ -1,0 +1,18 @@
+parameters:
+    ip_stripe.form.type.stripe.class: IP\StripeBundle\Form\StripeType
+
+services:
+    ip_stripe.form.type.stripe:
+        class: "%ip_stripe.form.type.stripe.class%"
+        tags:
+            - { name: form.type, alias: ip_stripe_stripe }
+
+    ip_stripe.billing:
+        class: IP\StripeBundle\Services\StripeBilling
+        arguments:
+            - '%stripe%'
+        calls:
+            - [setLogger, ['@logger']]
+
+    stripe:
+        alias: 'ip_stripe.billing'

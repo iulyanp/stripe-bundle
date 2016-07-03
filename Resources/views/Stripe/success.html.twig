@@ -1,0 +1,8 @@
+{% extends 'IPStripeBundle::layout.html.twig' %}
+
+{% block ip_stripe_content %}
+<h1>Payment success!</h1>
+<p>Transaction Id: {{ id }}</p>
+<p>Charged: {{ charged/100 }}{{ currency }}</p>
+<p>Date: {{ created|date('Y-m-d H:i:s') }}</p>
+{% endblock %}

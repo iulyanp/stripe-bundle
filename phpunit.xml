@@ -1,0 +1,15 @@
+<phpunit bootstrap="Tests/bootstrap.php" colors="true">
+    <testsuites>
+        <testsuite name="StripeBundle PHP Test Suite">
+            <directory suffix="Test.php">StripeBundle/Tests</directory>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist>
+            <directory>lib</directory>
+        </whitelist>
+    </filter>
+    <logging>
+        <log type="coverage-clover" target="clover.xml"/>
+    </logging>
+</phpunit>
